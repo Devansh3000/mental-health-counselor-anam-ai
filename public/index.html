@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heaven AI — Mental Health Counsellor</title>
+  <meta name="description"
+    content="Talk to Heaven AI, your AI mental health counsellor. A safe, private space to talk, reflect, and heal." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- ═══════════════════════════════════════════════════════════════
+       LANDING PAGE OVERLAY — shown first, dismissed on CTA click
+  ════════════════════════════════════════════════════════════════ -->
+  <div class="landing-overlay" id="landing-overlay" role="dialog" aria-modal="true" aria-label="Welcome to Heaven AI">
+
+    <!-- animated background glow blobs -->
+    <div class="landing-blob blob-1"></div>
+    <div class="landing-blob blob-2"></div>
+    <div class="landing-blob blob-3"></div>
+
+    <!-- floating orb particles -->
+    <div class="orb-field" id="orb-field"></div>
+
+    <div class="landing-content">
+
+      <!-- top badge -->
+      <div class="landing-badge">
+        <span class="badge-dot"></span>
+        AI-Powered &nbsp;·&nbsp; Private &nbsp;·&nbsp; Always Available
+      </div>
+
+      <!-- hero title -->
+      <h1 class="landing-title">Heaven AI</h1>
+      <p class="landing-tagline">
+        Your personal AI mental health companion.<br />
+        A safe space to talk, reflect, and feel heard.
+      </p>
+
+      <!-- feature cards -->
+      <div class="landing-features">
+        <div class="feature-card">
+          <div class="feature-icon">🧘</div>
+          <div class="feature-text">
+            <strong>Guided Support</strong>
+            <span>Talk through your thoughts with a compassionate AI counsellor</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <div class="feature-text">
+            <strong>Private &amp; Safe</strong>
+            <span>Sessions are not stored. What you share stays with you</span>
+          </div>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌙</div>
+          <div class="feature-text">
+            <strong>Always Here</strong>
+            <span>Available any time of day or night, whenever you need it</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- disclaimer -->
+      <p class="landing-disclaimer">
+        ⚠️ Heaven AI is an AI assistant and <strong>not a substitute</strong> for professional mental health care.
+        If you are in crisis, please reach out to a licensed professional or helpline immediately.
+      </p>
+
+      <!-- CTA button -->
+      <button class="btn-enter" id="enter-btn">
+        <span class="btn-enter-text">Enter Your Safe Space</span>
+        <span class="btn-enter-arrow">→</span>
+      </button>
+
+      <!-- crisis footer -->
+      <div class="landing-crisis">
+        🆘 Crisis helplines &nbsp;·&nbsp; iCall <strong>9152987821</strong> &nbsp;·&nbsp;
+        Vandrevala <strong>1860-2662-345</strong>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN APP (hidden until landing dismissed)
+  ══════════════════════════════════════════ -->
+
+  <!-- top bar -->
+  <header class="topbar" id="app-header" style="opacity:0;pointer-events:none;">
+    <div class="topbar-brand">
+      <span class="topbar-dot"></span>
+      Heaven AI · AI Counsellor
+    </div>
+    <div class="topbar-status" id="topbar-status">Offline</div>
+  </header>
+
+  <!-- main -->
+  <main class="main" id="app-main" style="opacity:0;pointer-events:none;">
+
+    <!-- video window -->
+    <div class="video-wrap" id="video-wrap">
+      <div class="idle-screen" id="idle-screen">
+        <p class="idle-line">Ready when you are.</p>
+        <p class="idle-sub">Click <span>Begin</span> to start your session.</p>
+      </div>
+      <video id="persona-video" autoplay playsinline class="persona-video hidden"></video>
+      <div class="agent-talking hidden" id="agent-talking">
+        <span class="talk-bar"></span>
+        <span class="talk-bar"></span>
+        <span class="talk-bar"></span>
+        <span class="talk-bar"></span>
+        <span class="talk-bar"></span>
+      </div>
+    </div>
+
+    <!-- controls -->
+    <div class="controls" id="controls">
+      <button class="btn-begin" id="start-btn">Begin Session</button>
+      <div class="session-controls hidden" id="session-controls">
+        <button class="btn-end" id="stop-btn">⏹ End Session</button>
+        <button class="btn-mute" id="mute-btn">🎙 Mute</button>
+      </div>
+    </div>
+
+    <!-- transcript -->
+    <section class="transcript-area" id="transcript-area">
+      <div class="transcript-label">
+        <span>TRANSCRIPT</span>
+        <button class="clear-btn" id="clear-transcript-btn">clear</button>
+      </div>
+      <div class="transcript-body" id="transcript-body">
+        <p class="empty-hint">Your conversation will appear here once the session begins.</p>
+      </div>
+    </section>
+
+    <!-- crisis -->
+    <div class="crisis-line">
+      🆘 In crisis? Call iCall <strong>9152987821</strong> · Vandrevala <strong>1860-2662-345</strong>
+    </div>
+
+  </main>
+
+  <script type="module" src="app.js"></script>
+</body>
+
+</html>
