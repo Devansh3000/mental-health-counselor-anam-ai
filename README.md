@@ -62,7 +62,7 @@ Once you see the cool ASCII art header in your terminal, the application will be
 - `public/`: Contains all our frontend magic.
   - `index.html`: The main web portal where you interface with the avatar.
   - `style.css`: All the styling to make the interface calming and beautiful.
-  - `app.js`: Client-side logic for connecting the video streams and handling the UI.
+  - `app.js`: Client-side logic for connecting the video's and handling the UI.
 - `anam_stream.py`: An experimental Python script snippet for streaming the Anam API directly (useful for testing parameters).
 
 ---
